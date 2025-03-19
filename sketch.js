@@ -89,9 +89,7 @@ function preload() {
   sharedImg = loadImage('images/clipboard.png');
   mdeGIF[0] = loadImage('images/mde.gif');
   TTFors = loadFont('TTForsMedium.ttf'); // ttf needs to be added to files
-  crtShader = loadShader('shaders/crt.vert.glsl', 'shaders/crt.frag.glsl',
-  () => console.log("Shader loaded successfully!"), 
-    (err) => console.error("Shader failed to load", err));
+  crtShader = loadShader('shaders/crt.vert.glsl', 'shaders/crt.frag.glsl');
 }
 
 function startOver(resetFile = false) {
@@ -145,7 +143,7 @@ let zoff = 0;
 let smaller;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight, WEBGL);
   frameRate(30);
 
   // create a downscaled graphics buffer to draw to, we'll upscale after applying crt shader
@@ -162,6 +160,11 @@ function setup() {
   // force pixel density to 1 to improve perf on retina screens
   pixelDensity(1);
 
+if (crtShader) {
+  crtShader.setUniform("u_resolution", [width, height]);
+} else {
+  console.error("crtShader is undefined!");
+}
   // p5 graphics element to draw our shader output to
   shaderLayer = createGraphics(g.width, g.height, WEBGL);
   shaderLayer.noStroke();
