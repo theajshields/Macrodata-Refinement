@@ -1,5 +1,5 @@
 function preload() {
-  TTFors = loadFont('fonts/TTForsMedium.ttf');  // ttf needs to be added to files
+  TTFors = loadFont('TTForsMedium.ttf');  // ttf needs to be added to files
 }
 
 class Data {

@@ -88,7 +88,7 @@ function preload() {
   completedImg = loadImage('images/100.png');
   sharedImg = loadImage('images/clipboard.png');
   mdeGIF[0] = loadImage('images/mde.gif');
-  TTFors = loadFont('fonts/TTForsMedium.ttf'); // ttf needs to be added to files
+  TTFors = loadFont('TTForsMedium.ttf'); // ttf needs to be added to files
 
   crtShader = loadShader('shaders/crt.vert.glsl', 'shaders/crt.frag.glsl');
 }
