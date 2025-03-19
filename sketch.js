@@ -92,6 +92,8 @@ function preload() {
   crtShader = loadShader('shaders/crt.vert.glsl', 'shaders/crt.frag.glsl');
 }
 
+console.log(crtShader); // debug why crtshader comes back undefined
+
 function startOver(resetFile = false) {
   // Track the amount of time
   startTime = millis();
