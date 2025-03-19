@@ -89,8 +89,9 @@ function preload() {
   sharedImg = loadImage('images/clipboard.png');
   mdeGIF[0] = loadImage('images/mde.gif');
   TTFors = loadFont('TTForsMedium.ttf'); // ttf needs to be added to files
-
-  crtShader = loadShader('shaders/crt.vert.glsl', 'shaders/crt.frag.glsl');
+  crtShader = loadShader('shaders/crt.vert.glsl', 'shaders/crt.frag.glsl',
+  () => console.log("Shader loaded successfully!"), 
+    (err) => console.error("Shader failed to load", err));
 }
 
 function startOver(resetFile = false) {
